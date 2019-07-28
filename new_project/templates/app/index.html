@@ -1,0 +1,44 @@
+{% extends 'shared/base.html' %}
+{% block title %} 목록 {% endblock %}
+{% block style %}
+    <style>
+        table{
+            text-align: center;
+            width: 50%;
+            border: 3px solid antiquewhite;
+
+        }
+
+        tr,td{
+            width: 50%;
+            border: 3px solid lightpink;
+        }
+        .newbtn{
+            color:pink;
+        }
+    </style>
+
+    <center>
+        <div style="width:75%;">
+            <table class="uk-table uk-table-middle uk-table-hover uk-table-divider ">
+                <thead><td>#<td>title<td></td></thead>
+                <td>
+                    <tbody>
+                    {% for item in board %}
+                        <tr>
+                            <td>
+                                <a href="/app/board/{{item.id}}"> {{item.title}} </a>
+                            <td>
+                                {{ item.id }}
+                                <a href="/app/remove/{{ item.id }}">delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+    </center>
+    <div style='width:87%; text-align:right; '>
+        <a class='newbtn' href="/app/new">게시물 작성</a>
+    </div>
+{% endblock %}

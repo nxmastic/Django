@@ -1,0 +1,14 @@
+{% extends 'shared/base.html' %}
+{% block title %}게시글 작성{% endblock %}
+{% block style %}{% endblock %}
+{% block body %}
+
+    <form action="/app/new" method="post">
+        {% csrf_token %}  {# csrf_token은 보안상으로 필요함 #}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}
+{# method에는 크게 2가지 get과 post , get은 뒤에다 인자 넘겨주는 방식, post는 링크를 통해 넘겨주면 안되는것, 중요한것들은 post를 사용 post는 링크를 넘겨주고#}
+{#하나를 더 넘겨주게 되어, post내용물을 못보게 함, only code에서만 볼수 있게됨 #}
