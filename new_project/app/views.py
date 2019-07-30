@@ -85,6 +85,9 @@ def newComment(request,pk):
 
 
 
+
+
+
 # request는 client로부터 server로 데이터를 넘기게 하는 작업, 이거에 대한 응답이 response
 # return HttpResponse(template.render(context, request))랑 동일
 
